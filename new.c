@@ -4,30 +4,41 @@
 int main()
 {
   char card_name[3];
-  puts("Введите название карты: ");
-  scanf("%2s", card_name);
-  int val = 0;
   int count = 0;
-  
-  if (card_name[0] == 'K'){
-    val = 10;
-  } else if (card_name[0] == 'Q'){
-    val = 10;
-  } else if (card_name[0] == 'J'){
-    val = 10;
-  } else if (card_name[0] == 'A'){
-    val = 11;
-  } else {
-    val = atoi(card_name);
-  }
-
-  if ((3<=val) && (val<=6)){
-    count++;
-    puts("Счетчик увеличился");
-  } else if (val == 10){
-    count--;
-    puts("Счетчик уменьшился");
-  }
-  
+  while (card_name[0] != 'X')
+    {
+      puts("vvedite znachenie karty");
+      scanf("%2s", card_name);
+      int val = 0;
+      switch (card_name[0])
+	{
+	case 'K':
+	case 'Q':
+	case 'J':
+	  val = 10;
+	  break;
+	case 'A':
+	  val = 11;
+	  break;
+	case 'X':
+	  break;
+	default:
+	  val = atoi(card_name);
+	  if((val < 1) || (val > 10))
+	    {
+	      puts("error, icorrect card count");
+	      continue;
+	    }
+	}
+      if ((val > 2) && (val < 7))
+	{
+	  count++;
+	}
+      else if (val == 10)
+	{
+	  count--;
+	}
+      printf("tekushiy schet: %i\n", count);
+    }
   return 0;
 }
