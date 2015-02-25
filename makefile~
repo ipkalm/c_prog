@@ -1,0 +1,2 @@
+cards: new.c
+	gcc -Wall -o cards new.c

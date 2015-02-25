@@ -1,0 +1,23 @@
+:
+name=cards
+vi $1
+gcc -Wall -o $name $1
+echo "Запустить исполняемый файл "$name" ? (type y or n)"
+read x
+case $x in
+    y)
+	./$name
+	while :
+	      echo "game over ?"
+	      read y
+	      if [ $y -eq y ]; then
+		  break
+	      else
+		  continue
+	      fi
+	      ;;
+	    
+    n)
+	vi $1
+	;;
+esac
