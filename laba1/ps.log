@@ -1,0 +1,175 @@
+  PID TTY          TIME CMD
+    1 ?        00:00:14 systemd
+    2 ?        00:00:00 kthreadd
+    3 ?        00:03:40 ksoftirqd/0
+    5 ?        00:00:00 kworker/0:0H
+    7 ?        00:07:49 rcu_preempt
+    8 ?        00:00:00 rcu_sched
+    9 ?        00:00:00 rcu_bh
+   10 ?        00:00:00 migration/0
+   11 ?        00:00:00 watchdog/0
+   12 ?        00:00:00 watchdog/1
+   13 ?        00:00:00 migration/1
+   14 ?        00:00:37 ksoftirqd/1
+   16 ?        00:00:00 kworker/1:0H
+   17 ?        00:00:00 watchdog/2
+   18 ?        00:00:01 migration/2
+   19 ?        00:00:26 ksoftirqd/2
+   21 ?        00:00:00 kworker/2:0H
+   22 ?        00:00:00 watchdog/3
+   23 ?        00:00:01 migration/3
+   24 ?        00:00:26 ksoftirqd/3
+   26 ?        00:00:00 kworker/3:0H
+   27 ?        00:00:00 khelper
+   28 ?        00:00:00 kdevtmpfs
+   29 ?        00:00:00 netns
+   30 ?        00:00:00 perf
+   31 ?        00:00:00 khungtaskd
+   32 ?        00:00:00 writeback
+   33 ?        00:00:00 ksmd
+   34 ?        00:00:16 khugepaged
+   35 ?        00:00:00 crypto
+   36 ?        00:00:00 kintegrityd
+   37 ?        00:00:00 bioset
+   38 ?        00:00:00 kblockd
+   40 ?        00:00:00 devfreq_wq
+   42 ?        00:01:12 kswapd0
+   43 ?        00:00:02 fsnotify_mark
+   48 ?        00:00:00 kthrotld
+   49 ?        00:00:00 ipv6_addrconf
+   51 ?        00:00:00 deferwq
+   82 ?        00:00:00 ata_sff
+   84 ?        00:00:00 scsi_eh_0
+   85 ?        00:00:00 scsi_tmf_0
+   86 ?        00:00:00 scsi_eh_1
+   87 ?        00:00:00 scsi_tmf_1
+   88 ?        00:00:00 scsi_eh_2
+   89 ?        00:00:00 scsi_tmf_2
+   90 ?        00:00:00 scsi_eh_3
+   91 ?        00:00:00 scsi_tmf_3
+   92 ?        00:00:00 scsi_eh_4
+   93 ?        00:00:00 scsi_tmf_4
+  107 ?        00:00:09 kworker/1:1H
+  108 ?        00:00:10 kworker/2:1H
+  109 ?        00:00:10 kworker/3:1H
+  110 ?        00:00:55 kworker/0:1H
+  122 ?        00:00:05 jbd2/sda4-8
+  123 ?        00:00:00 ext4-rsv-conver
+  151 ?        00:08:54 systemd-journal
+  180 ?        00:00:00 systemd-udevd
+  204 ?        00:00:00 acpi_thermal_pm
+  206 ?        00:00:00 kpsmoused
+  221 ?        00:00:00 kvm-irqfd-clean
+  222 ?        00:00:00 cfg80211
+  223 ?        00:00:00 led_workqueue
+  233 ?        00:00:00 hd-audio1
+  234 ?        00:00:00 hd-audio0
+  271 ?        00:00:00 ext4-rsv-conver
+  277 ?        00:00:26 jbd2/sda5-8
+  278 ?        00:00:00 ext4-rsv-conver
+  288 ?        00:00:46 NetworkManager
+  289 ?        00:17:38 dbus-daemon
+  291 ?        00:00:00 cupsd
+  292 ?        00:00:07 systemd-logind
+  293 ?        00:00:00 kdm
+  294 tty1     00:00:00 agetty
+  296 tty7     01:53:21 Xorg
+  301 ?        00:00:00 colord
+  306 ?        00:00:26 polkitd
+  307 ?        00:00:05 wpa_supplicant
+  320 ?        00:00:15 ntpd
+  334 ?        00:00:11 avahi-daemon
+  335 ?        00:00:00 avahi-daemon
+  340 ?        00:00:00 kdm
+  343 ?        00:00:27 dolphin
+  353 ?        00:00:00 systemd
+  354 ?        00:00:00 (sd-pam)
+  356 ?        00:00:00 startkde
+  365 ?        00:00:00 dbus-launch
+  366 ?        00:03:09 dbus-daemon
+  411 ?        00:00:00 start_kdeinit
+  412 ?        00:00:01 kdeinit4
+  413 ?        00:00:13 klauncher
+  415 ?        00:01:55 kded4
+  426 ?        00:00:04 kglobalaccel
+  432 ?        00:00:00 kwrapper4
+  433 ?        00:00:14 ksmserver
+  437 ?        00:00:15 kactivitymanage
+  443 ?        00:00:15 kded5
+  446 ?        00:00:13 gam_server
+  449 ?        00:00:00 kdeinit5
+  450 ?        00:00:29 klauncher
+  457 ?        00:00:30 upowerd
+  476 ?        00:21:01 udisksd
+  485 ?        00:40:48 kwin
+  492 ?        00:45:30 plasma-desktop
+  498 ?        00:00:11 knotify4
+  503 ?        00:00:04 kuiserver
+  505 ?        00:00:03 kwalletd
+  528 ?        00:00:05 gpg-agent
+  565 ?        00:00:00 gvfsd
+  572 ?        00:00:00 gvfsd-fuse
+  591 ?        00:00:42 krunner
+  635 ?        00:00:20 korgac
+  647 ?        00:00:02 polkit-kde-auth
+  667 ?        00:00:30 kmix
+  672 ?        00:00:02 kgpg
+  956 ?        00:00:22 kwalletmanager
+ 1040 ?        01:26:01 clementine
+ 1045 ?        00:00:00 clementine-tagr
+ 1046 ?        00:00:00 clementine-tagr
+ 1047 ?        00:00:00 clementine-tagr
+ 1048 ?        00:00:00 clementine-tagr
+ 1082 ?        00:00:01 gvfs-udisks2-vo
+ 1087 ?        00:00:00 gvfs-mtp-volume
+ 1097 ?        00:00:00 at-spi-bus-laun
+ 4156 pts/7    00:00:00 bash
+ 4556 ?        00:12:07 yakuake
+ 4559 pts/1    00:00:00 bash
+ 4567 pts/2    00:00:00 bash
+ 4577 pts/4    00:00:00 bash
+ 5039 ?        02:35:58 qbittorrent
+ 5041 ?        00:00:00 gvfsd-metadata
+ 5809 ?        00:01:44 megasync
+ 6805 pts/5    00:00:00 bash
+ 6828 ?        00:00:08 kworker/1:0
+ 6872 pts/6    00:00:00 bash
+ 7877 ?        00:00:06 kdeconnectd
+ 7986 ?        00:00:11 kworker/1:1
+ 9467 ?        00:00:00 ksysguardd
+ 9483 ?        00:00:00 dhclient
+10834 pts/6    00:00:01 ipython
+11767 ?        00:00:14 kworker/3:1
+12490 ?        00:00:00 kworker/2:2
+13380 ?        00:13:41 python2
+13442 ?        00:00:00 kworker/0:0
+13498 ?        00:00:00 oosplash
+13520 ?        00:00:58 soffice.bin
+13580 ?        00:00:03 kworker/u8:1
+14601 ?        00:00:00 kworker/3:0
+15177 ?        00:00:01 dbus-daemon
+15181 ?        00:00:06 at-spi2-registr
+15304 pts/8    00:00:02 bash
+15334 ?        00:00:00 kworker/u8:2
+15449 ?        00:00:00 kworker/u8:0
+15467 pts/8    00:00:00 ps
+16055 ?        00:12:51 python
+19994 ?        00:00:15 kworker/2:1
+20032 ?        00:06:52 thunderbird
+21436 ?        00:00:00 gvfsd-http
+21753 ?        00:00:01 mount.ntfs
+23273 ?        02:06:07 firefox
+23978 ?        00:17:46 python2
+25410 ?        00:00:20 kworker/0:1
+27200 pts/11   00:00:00 bash
+28507 ?        00:00:00 miredo
+28509 ?        00:01:15 miredo
+28510 ?        00:00:00 miredo-privproc
+28563 ?        00:00:01 postgres
+28565 ?        00:00:00 postgres
+28566 ?        00:00:00 postgres
+28567 ?        00:00:00 postgres
+28568 ?        00:00:01 postgres
+28569 ?        00:00:03 postgres
+28600 pts/5    00:00:00 ipython
+28604 ?        00:00:00 postgres
