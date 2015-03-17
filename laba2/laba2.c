@@ -1,5 +1,6 @@
 #include <stdio.h>
 /*#include <string.h>*/
+#include <time.h>
 
 #define MAXLINES 5000 /* количество строк */
 
