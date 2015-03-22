@@ -90,3 +90,35 @@ rp->pt1.x;
 (r.pt1).x;
 (rp->pt1).x;
 
+
+// массив структур
+struct key
+{
+  char *keyword;
+  int keycount;
+} keytab [nkeys];
+
+// или
+struct key
+{
+  char *keyword;
+  int keycount;
+};
+struct key keytab[nkeys];
+
+// инициализация структуры
+struct key {
+  char *keyword;
+  int keycount;
+} keytab [] = { "break",0,
+		"case",0,
+		"char",0,
+		"continue",0,
+		"default",0,
+		/*...*/
+		"while",0 };
+// инициализаторы перечисляются в данном случае парами, но кореектнее их заключасть в фигурные скобки
+{"break",0},
+{"continue",0,},
+...
+
