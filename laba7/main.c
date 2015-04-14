@@ -51,7 +51,7 @@ int main(void)
   fread(&q, sizeof(int), 1, fp);
   printf("золота в шахте осталось %d\n", q);
   fclose(fp);
-  
+
   return 0;
 }
 
@@ -80,6 +80,6 @@ void mine_init(void)
   lseek(fd_mine, 0L, 0);
   read(fd_mine, &x, sizeof(int));
   printf("стало - %d\n", x);
-  
+
   close(fd_mine);
 }
