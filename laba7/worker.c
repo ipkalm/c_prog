@@ -1,62 +1,52 @@
-// код рабочего, кторый должен заблокировать файл шахты
-// отнять 10 голда
-// разблокировать файл шахты
+// Copyright 2015 <Astronaut>
 
 #include <stdio.h>
-#include <errno.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdlib.h>
+#include "error.c"
 
 #define CARGO 10
-#define MAX_TRY 1
+#define MINE "mine"
 
-//int fileno(FILE * stream);
-//int lockf(int fd, int cmd, off_t len);
-//void exit(int exit_code);
-
-int main(void)
-{
-  int fd_mine;
-  int gold = 0;
+int main(int argc, char *argv[]) {
+  int gold;
   int kpd = 0;
-  struct flock lck;
+  int mine_fd;
   pid_t pid = getpid();
-  
-  fd_mine = open("mine", O_RDWR);
-  if (fd_mine < 0) {
-    perror("mine");
-    exit(2);
+  struct flock lck;
+
+  mine_fd = open(MINE, O_RDWR);
+  if (mine_fd < 0) {
+    error("Не могу открыть файл\n");
   }
-  
-  // задаем значение структуре блокировки файла
-  lck.l_whence = 0; // смещение от начала
-  lck.l_start = 0L; // начало блокировки с позиции 0
-  lck.l_len = 0L; // и до конца
-  
+
+  // блокировка
+  lck.l_whence = 0;  // смещение от начала
+  lck.l_len = 0L;    // начало блокировки с позии 0
+  lck.l_start = 0L;  // и до конца
+
   for (;;) {
-    lseek(fd_mine, 0L, 0);
-    lck.l_type = F_WRLCK; // тип блокировки На запись
-    fcntl(fd_mine, F_SETLKW, &lck);
-    
-    read(fd_mine, &gold, sizeof(int));
-    
+    lseek(mine_fd, 0L, 0);
+    lck.l_type = F_WRLCK;
+    fcntl(mine_fd, F_SETLKW, &lck);
+
+    read(mine_fd, &gold, sizeof(gold));
+
     if (gold > 9) {
       gold = gold - CARGO;
       kpd = kpd + CARGO;
-      
-      lseek(fd_mine, 0L, 0);
-      write(fd_mine, &gold, sizeof(int));
-      
+
+      lseek(mine_fd, 0L, 0);
+      write(mine_fd, &gold, sizeof(gold));
+
       lck.l_type = F_UNLCK;
-      fcntl(fd_mine, F_SETLK, &lck);
-      
-      //      sleep(0); // рабочий несет золото
+      fcntl(mine_fd, F_SETLK, &lck);
     } else {
-      lck.l_type = F_UNLCK; // тип блокировки - Разблокировать
-      fcntl(fd_mine, F_SETLK, &lck);
-      printf("натаскал %d золота (pid=%d)\n", kpd, pid);
-      close(fd_mine);
+      lck.l_type = F_UNLCK;
+      fcntl(mine_fd, F_SETLK, &lck);
+      printf("наносил %d золота (pid=%d)\n", kpd, pid);
+      close(mine_fd);
       break;
     }
   }

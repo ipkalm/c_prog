@@ -1,12 +1,11 @@
 // Copyright 2015 <Astro>
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include "error.c"
 
 #define WORKERS 5
 #define GOLD 15000
@@ -14,69 +13,62 @@
 
 void mine_init(void);
 
-int main(void) {
-  int i, pid[WORKERS], stat, status;
+int main() {
+  int i, stat;
+  pid_t pid[WORKERS];
+  int fd[2];
+  char line[50];
+
   // инициализации шахты
   mine_init();
+  if (pipe(fd) < 0)
+    error("не могу создать канал\n");
 
   // создаем процессы рабочих
-  for (i = 0; i < 5; i++) {
-    // порождаем дочерний процесс
-    pid[i] = fork();
+  for (i = 0; i < WORKERS; i++) {
+    if (!(pid[i] = fork())) {
+      // перенаправляем стандарнтый вывод в канал pipe
+      dup2(fd[1], 1);
+      close(fd[0]);
 
-    if (pid[i] == 0) {
       // запускаем рабочих
-      if (execl("./worker", "worker", NULL) < 0) {
-        printf("Ошибка во время запуска файла/процееса\n");
-        exit(-2);
-      } else {
-        printf("Процесс-файл запущен pid=%d\n", pid[i]);
-      }
+      if (execl("./worker", "worker", NULL) < 0)
+        error("Ошибка во время запуска файла/процееса\n");
+
+    } else if (pid[i] < 0) {
+      error("ошибка при создании процесса\n");
     }
   }
 
-  for (i = 0; i < 5; i++) {
-    // ждем пока процессы закончат работу
-    status = waitpid(pid[i], &stat, WUNTRACED);
-    if (pid[i] == status) {
-      printf("рабочий №%d(pid:%d) закончил работу\n", i + 1, pid[i]);
-    }
-  }
+  dup2(fd[0], 0);
+  close(fd[1]);
 
-  // проверяем сколько голд в шахте осталось
-  int q;
-  FILE *fp = fopen(MINE, "r");
-  fread(&q, sizeof(int), 1, fp);
-  printf("золота в шахте осталось %d\n", q);
-  fclose(fp);
+  // ждем пока рабоче закончат работу
+  for (i = 0; i < WORKERS; i++)
+    if (pid[i] == waitpid(pid[i], &stat, 0))
+      printf("рабочий номер %d - всё (pid=%d)\n", i+1, pid[i]);
+
+  while (fgets(line, 50, stdin))
+    printf("%s", line);
+
 
   return 0;
 }
 
 // инициализация шахты
-
 void mine_init(void) {
   int gold = GOLD;
-  int x;
   int fd_mine;
 
   // открываем файл если есть, если нет то создаем с обычными правами
   fd_mine = open(MINE, O_RDWR|O_CREAT|O_TRUNC,
                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
   if (fd_mine < 0) {
-    fprintf(stderr, "Can't open/create file");
-    exit(1);
+    error("не могу создать шахту\n");
   }
 
   // устанавливаем каретку на начало
   lseek(fd_mine, 0L, 0);
-  // пишем золото в шахту
-  write(fd_mine, &gold, sizeof(int));
-
-  // устанавливаем каретку на начало
-  lseek(fd_mine, 0L, 0);
-  read(fd_mine, &x, sizeof(int));
-  printf("стало - %d\n", x);
-
+  write(fd_mine, &gold, sizeof(gold));
   close(fd_mine);
 }
