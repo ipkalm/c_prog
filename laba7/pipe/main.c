@@ -5,19 +5,17 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/wait.h>
-#include "error.c"
+#include "mine_init.c"  // тут же и include error.c
 
 #define WORKERS 5
-#define GOLD 15000
-#define MINE "mine"
 
 void mine_init(void);
 
 int main() {
   int i, stat;
-  pid_t pid[WORKERS];
-  int fd[2];
-  char line[50];
+  pid_t pid[WORKERS];  // массив рабочих
+  int fd[2];           // для pipe
+  char line[50];       // для вывода работы рабочих
 
   // инициализации шахты
   mine_init();
@@ -53,22 +51,4 @@ int main() {
 
 
   return 0;
-}
-
-// инициализация шахты
-void mine_init(void) {
-  int gold = GOLD;
-  int fd_mine;
-
-  // открываем файл если есть, если нет то создаем с обычными правами
-  fd_mine = open(MINE, O_RDWR|O_CREAT|O_TRUNC,
-                 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-  if (fd_mine < 0) {
-    error("не могу создать шахту\n");
-  }
-
-  // устанавливаем каретку на начало
-  lseek(fd_mine, 0L, 0);
-  write(fd_mine, &gold, sizeof(gold));
-  close(fd_mine);
 }
