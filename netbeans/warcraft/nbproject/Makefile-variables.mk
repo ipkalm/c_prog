@@ -7,21 +7,21 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=clang-Linux-x86
-CND_ARTIFACT_DIR_Debug=dist/Debug/clang-Linux-x86
+CND_PLATFORM_Debug=GNU-Linux-x86
+CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
 CND_ARTIFACT_NAME_Debug=warcraft
-CND_ARTIFACT_PATH_Debug=dist/Debug/clang-Linux-x86/warcraft
-CND_PACKAGE_DIR_Debug=dist/Debug/clang-Linux-x86/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/warcraft
+CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Debug=warcraft.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/clang-Linux-x86/package/warcraft.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/warcraft.tar
 # Release configuration
-CND_PLATFORM_Release=clang-Linux-x86
-CND_ARTIFACT_DIR_Release=dist/Release/clang-Linux-x86
+CND_PLATFORM_Release=GNU-Linux-x86
+CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
 CND_ARTIFACT_NAME_Release=warcraft
-CND_ARTIFACT_PATH_Release=dist/Release/clang-Linux-x86/warcraft
-CND_PACKAGE_DIR_Release=dist/Release/clang-Linux-x86/package
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/warcraft
+CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Release=warcraft.tar
-CND_PACKAGE_PATH_Release=dist/Release/clang-Linux-x86/package/warcraft.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/warcraft.tar
 #
 # include compiler specific variables
 #

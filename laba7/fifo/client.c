@@ -10,7 +10,7 @@
 
 #define FIFO1 "/tmp/fi1"
 #define FIFO2 "/tmp/fi2"
-#define FILE_MODE (S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)
+
 #define MAXLINE 80
 
 
