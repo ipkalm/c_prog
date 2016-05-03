@@ -1,2 +1,0 @@
-LD_LIBRARY_PATH=~/documents/eltex/c_prog/laba5/static/
-export $LD_LIBRARY_PATH

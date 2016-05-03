@@ -1,5 +1,0 @@
-stroka 1
-stroka 2
-str
-as
-dd
