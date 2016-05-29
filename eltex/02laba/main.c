@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
   printf("\n\tBEFORE SORT:\n");
   display(array, size);
-  
+
   start = clock();
   bublesort(array, size);
   end = clock();
@@ -37,11 +37,11 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-void bublesort(char *array[], int size) 
+void bublesort(char *array[], int size)
 {
-  int i, j;
-  
- for(i = 0; i < size - 1; i++)
+  register int i, j;
+
+  for(i = 0; i < size - 1; i++)
     for(j = i + 1; j < size; j++)
       if (strcmp(array[i], array[j]) > 0)
         swap(&array[i], &array[j]);
